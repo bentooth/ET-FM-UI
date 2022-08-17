@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="Electric Tooth FM" />
+  <meta name="keywords"
+    content="playlist, curated music, electronic music, disco, house music, soundcloud, soul music" />
+  <meta name="description" content="Electric Tooth FM is a curated playlist of electronic music." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Electric Tooth FM" />
+  <meta property="og:description" content="Electric Tooth FM is a curated playlist of electronic music." />
+  <meta property="og:site_name" content="electrictooth.fm" />
+  <meta property="og:image" content="https://electrictooth.fm/public/images/mascot1.jpg" />
+  <meta property="og:url" content="https://electrictooth.fm/" />
+  <meta itemprop="name" content="Electric Tooth FM" />
+  <meta itemprop="image" content="https://electrictooth.fm/public/images/mascot1.jpg" />
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@princebiomass">
+  <meta name="twitter:description" content="Electric Tooth FM is a curated playlist of electronic music.">
+  <meta name="twitter:title" content="Electric Tooth FM">
+  <meta name="twitter:image" content="https://electrictooth.fm/public/images/mascot1.jpg">
+
+  <meta name="theme-color" content="#05aea5" />
+  <title>Electric Tooth FM</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="./public/css/reset.css" rel="stylesheet" />
+  <link href="./public/css/main.css" rel="stylesheet" />
+  <link rel="icon" href="./public/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="./public/images/logo192.png" />
+  <link rel="manifest" href="./manifest.json" />
+</head>
+
+<body>
+  <audio id="audio-ele" type='audio/mpeg'></audio>
+
+  <!-- <img class="mascot" src="/public/images/mascot.jpg" style="width: 50px; height: 50px" alt="mascot" /> -->
+
+  <div class="video-background">
+    <div class="video-foreground">
+      <div id="player"></div>
+    </div>
+  </div>
+
+  <div id="vidtop-content">
+    <div class="vid-info">
+      <h1>Electric Tooth FM</h1>
+      <p>Welcome and please enjoy the music :)</p>
+    </div>
+  </div>
+
+  <section class="small-mobile-player" id="smp">
+
+    <div class="mini-progress-bar">
+      <div class="middle-align mini-progress-bar__bg" id="mini-progress-bar__track">
+        <div class="mini-progress-bar__fg_wrapper">
+          <div class="mini-progress-bar__fg" id="mini-progress-bar__progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="smp-control-container">
+
+      <div onclick="ETPlayer.toggleMobilePlayer()">
+        <img class="fmp-img" src="./public/images/filler.jpg" style="width: 150px; height: 150px" alt="small album cover" />
+      </div>
+
+      <div onclick="ETPlayer.toggleMobilePlayer()" class="smp-details-container">
+        <div class="player-title"></div>
+        <div class="player-singer"></div>
+      </div>
+
+      <div style="width: 75px; margin-right: 36px;">
+        <i class="play-icon fa fa-play" style="font-size: 64px;" onclick="ETPlayer.play()"></i>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="full-mobile-player" id="fmp">
+
+    <div class="fmp-img-container">
+      <img class="fmp-img" src="./public/images/filler.jpg" style="width: 600px; height: 600px" alt="full album cover" />
+    </div>
+
+    <div class="fmp-controls-container">
+
+      <div class="fmp-controls-title">
+        <p class="player-title"></p>
+        <p class="player-singer"></p>
+      </div>
+
+      <div class="fmp-controls-slider">
+        <div class="progress-bar">
+          <div class="middle-align progress-bar__bg" id="progress-bar__track">
+            <div class="progress-bar__fg_wrapper">
+              <div class="progress-bar__fg" id="progress-bar__progress"></div>
+              <button class="middle-align progress-bar__slider" id="progress-bar__button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fmp-controls-player">
+        <i class="fa fa-step-backward" style="font-size: 64px;" onclick="ETPlayer.prev()"></i>
+        <div style="width: 54px;">
+          <i class="play-icon fa fa-play" style="font-size: 64px;" onclick="ETPlayer.play()"></i>
+        </div>
+        <i class="fa fa-step-forward" style="font-size: 64px;" onclick="ETPlayer.next()"></i>
+      </div>
+
+    </div>
+
+    <div class="fmp-navigation">
+      <i class="fa fa-angle-down" style="font-size: 92px; margin-left: 32px;"
+        onclick="ETPlayer.toggleMobilePlayer()"></i>
+      <i class="fa fa-list" style="font-size: 64px; margin-right: 32px;" onclick="ETPlayer.toggleMobileList()"></i>
+    </div>
+
+  </section>
+
+  <section class="full-mobile-list" id="fml">
+    <div class="mobile-playlist" id="mp">
+      <div class="playlist-header">
+        <p>playlist</p>
+      </div>
+
+      <template>
+        <div class="playlist-item">
+          <div style="padding-right: 16px;">
+            <img src="/public/images/filler.jpg" alt="playlist item cover" />
+          </div>
+
+          <div>
+            <p class="playlist-item-text"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <div class="fml-navigation">
+      <i class="fa fa-close" style="font-size: 64px; margin-right: 48px;" onclick="ETPlayer.toggleMobileList()"></i>
+    </div>
+  </section>
+
+  <section class="desktop-player">
+
+    <section class="desktop-player__details">
+      <img class="fmp-img" src="/public/images/filler.jpg" style="width: 60px; height: 60px;"
+        alt="desktop player album cover" />
+      <div>
+        <p class="player-title"></p>
+        <p class="player-singer"></p>
+      </div>
+    </section>
+
+    <section class="desktop-player__container__controls">
+      <div class="desktop-player__controls">
+        <div class="desktop-player__controls_buttons">
+          <i class="fa fa-step-backward" style="font-size: 24px;" onclick="ETPlayer.prev()"></i>
+          <div><i class="play-icon fa fa-play" style="font-size: 24px;" onclick="ETPlayer.play()"></i></div>
+          <i class="fa fa-step-forward" style="font-size: 24px;" onclick="ETPlayer.next()"></i>
+        </div>
+
+        <div class="desktop-player__controls_slider">
+          <div class="desktop-player__progress-bar__bg" id="desktop-player__progress-bar_track">
+            <div class="desktop-player__progress-bar__fg_wrapper">
+              <div class="desktop-player__progress-bar__fg" id="desktop-player__progress-bar_progress"></div>
+              <button class="desktop-player__progress-bar__slider" id="desktop-player__progress-bar_button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="desktop-player__playlist_volume">
+      <input type="range" id="vol-control" name="volume" min="0" max="100" value="100">
+      <i class="fa fa-list playlist-icon" onclick="ETPlayer.toggleMobileList()"></i>
+    </section>
+
+  </section>
+</body>
+
+<script src="./public/js/ET.js"></script>
+<script src="./public/js/bg-video.js"></script>
+
+<script>
+
+</script>
+
+</html>
