@@ -84,7 +84,7 @@ class ETAudioPlayer {
     }
 
     loadPlaylistFromSC = () => {
-        fetch("http://localhost:4000/playlist", { method: 'GET' })
+        fetch("https://electrictooth.com/fm/playlist", { method: 'GET' })
             .then((response: any) => response.json())
             .then((playlist: any) => {
                 this.playlist = playlist;
@@ -319,7 +319,7 @@ class ETAudioPlayer {
         console.log('loading playlist');
 
         if (this.currentSong) {
-            fetch(`http://localhost:4000/stream/${this.currentSong.stream_id}`, { method: 'GET' })
+            fetch(`https://electrictooth.com/fm/stream/${this.currentSong.stream_id}`, { method: 'GET' })
                 .then((response: any) => response.blob())
                 .then((blob: any) => {
                     // @ts-ignore
