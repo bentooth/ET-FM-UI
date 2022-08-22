@@ -19,6 +19,14 @@
 }
 
 .bg {
+  /* The image used */
+  background-image: url("../images/beach.jpeg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: fixed;
   top: 0;
   right: 0;
