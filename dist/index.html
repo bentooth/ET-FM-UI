@@ -38,7 +38,13 @@
 <body>
   <audio id="audio-ele" type='audio/mpeg'></audio>
 
-  <div class="bg"></div>
+  <div class="video-container">
+    <video autoplay loop muted poster="./public/poster.png">
+      <source src="./public/video/beach.mp4" type="video/mp4">
+      <source src="./public/video/beach.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
   <div id="vidtop-content">
     <div class="vid-info">
