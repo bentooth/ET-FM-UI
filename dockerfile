@@ -11,7 +11,6 @@ WORKDIR /app
 RUN mkdir public
 COPY src/public/ ./public/
 COPY --from=BUILD /src/dist/* ./public/js/
-COPY package.json .
 COPY src/manifest.json .
 COPY src/index.html .
 
