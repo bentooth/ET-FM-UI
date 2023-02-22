@@ -10,7 +10,7 @@ FROM node:16-alpine AS RUNTIME
 WORKDIR /app
 RUN mkdir public
 COPY src/public/ ./public/
-COPY --from=BUILD /src/dist/* ./public/js/
+COPY --from=BUILD /src/dist/public/js/ ./public/js/
 COPY src/manifest.json .
 COPY src/index.html .
 

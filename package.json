@@ -1,7 +1,11 @@
 {
   "name": "et-fm-ui",
     "scripts": {
-    "build": "./node_modules/.bin/tsc"
+    "build": "./node_modules/.bin/tsc",
+    "build:local": "rm -rf ./dist && rsync -av --exclude '*.js' --exclude '*.ts' ./src/ ./dist/ && ./node_modules/.bin/tsc",
+    "start:docker": "docker run --name ETUI -d -p 8080:80 et-ui",
+    "stop:docker": "docker stop ETUI && docker rm ETUI",
+    "build:docker": "docker build -t et-ui ."
   },
   "dependencies": {
     "typescript": "^4.9.5"
