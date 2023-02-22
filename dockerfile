@@ -14,5 +14,5 @@ COPY --from=BUILD /src/dist/public/js/ ./public/js/
 COPY src/manifest.json .
 COPY src/index.html .
 
-FROM nginx:latest
+FROM nginx:1.21-alpine
 COPY --from=RUNTIME /app/ /usr/share/nginx/html
